@@ -46,7 +46,7 @@ class CompaniesController < ApplicationController
   	private
 
 	def post_params
-		params.require(:company).permit(:name, :description, :url, :location)
+		params.require(:company).permit(:name, :description, :url, :location, :image)
 	end
 
 end
