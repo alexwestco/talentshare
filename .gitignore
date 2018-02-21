@@ -1,2 +1,8 @@
 
 *.log
+*.cache
+*.cache
+*.pid
+*.cache
+*.cache
+tmp/cache/assets/sprockets/v3.0/-8/-8KKo2p3qjEXCYHhfkVLRYVTAk8n_6dxw8geAOrmd8E.cache

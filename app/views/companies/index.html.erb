@@ -3,27 +3,35 @@
 	<p style="font-size: 16px; color:#191919;">Top applicants pre vetted by the world's best startups.</p>
 </div>
 
-<div style="background-color: #F5F8FA; height: 1000px;">
+<div style="background-color: #F5F8FA; min-height: 1000px;">
 
-	<div class="btn btn-primary my_button" style="position: absolute; background-color: #476987; text-align: center; color:#; font-size: 22px; margin-top:30px; margin-left: 38%; border: none;">
+	<div class="btn btn-primary my_button" style="display: block; position: absolute; background-color: #476987; text-align: center; font-size: 18px; margin-top:30px; margin-left: 40%; border: none;">
 		<a style="color:white; text-decoration: none;"><p style="padding-left: 15px; padding-right: 15px; padding-top: 8px;">Share your top applicants</p></a>
 	</div>
 
-	<% @companies.each do |company| %>
-		<div class="col-lg-4 col-md-6 mb-4">
-	        <div class="card h-100">
-	            <a href="/companys/<%= company.id %>"><img class="card-img-top" src="<%= company.image.url %>"" style="max-height: 200px;" alt=""></a>
-	            <div class="card-body">
-	                <h4 class="card-title">
-	                	<a href="/companys/<%= company.id %>"><%= company.title %></a>
-	                </h4>
-	                      
-	                <p class="card-text"><%= truncate(company.body, :length => 100) %></p>
-	            </div>
-	            <div class="card-footer">
-	                <p style=""><%= company.created_at.day %> / <%= company.created_at.month %> / <%= company.created_at.year %></p>
-	            </div>
-	        </div>
-	    </div>
-	<% end %>
+	<div>
+
+		<% @companies.each do |company| %>
+			<div class="col-lg-4 col-md-6 mb-4">
+		        <div class="card h-100">
+		            <div class="card-body">
+		                <h4 class="card-title">
+		                	<a href="/companys/<%= company.id %>"><%= company.name %></a>
+		                </h4>
+		                      
+		                <p class="card-text"><%= truncate(company.description, :length => 100) %></p>
+		            </div>
+		            <div class="card-footer">
+		                <p style=""><%= company.created_at.day %> / <%= company.created_at.month %> / <%= company.created_at.year %></p>
+		            </div>
+		        </div>
+		    </div>
+		<% end %>
+
+	</div>
 </div>
+<footer class="footer" style="">
+    <div style="bottom: 0px; background-color: black; width:100%; text-align: center; color:white; font-size: 13px; padding:5px;">
+      <span>TalentShare © - 2018</span>
+    </div>
+  </footer>
