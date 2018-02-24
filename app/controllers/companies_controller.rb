@@ -5,7 +5,6 @@ class CompaniesController < ApplicationController
 
 	def new
 		@company = Company.new
-
 	end
 
 	def create
@@ -41,6 +40,11 @@ class CompaniesController < ApplicationController
 
   	def show
     	@company = Company.find(params[:id])
+  	end
+
+  	def lists
+  		@lists = List.where(:company => params[:id])
+  		redirect_to '/'
   	end
 
   	private

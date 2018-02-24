@@ -1,4 +1,4 @@
-<div style="text-align: center; font-size: 20px; margin-top: 60px;">
+<div style="text-align: center; font-size: 20px; padding-top: 60px; background-color: white;">
 	<h1 style="margin:30px;">New Company</h1>
 
 
@@ -34,6 +34,28 @@
 
 		<%= c.label :image %></br>
 		<%= c.file_field :image %>
+		<br></br><br></br>
+
+		<hr>
+		<p style="font-size: 25px;">The company's credentials.</p>
+		<hr>
+		<br>
+		<p style="color: green;">The company's email for login.</p>
+
+		<%= c.label :email %></br>
+		<%= c.text_field :email, :required => true%>
+		<br></br><br></br>
+
+		<p style="color: green;">The company's password for login.</p>
+
+		<%= c.label :password %></br>
+		<%= c.text_field :password, :required => true%>
+		<br></br><br></br>
+
+		<p style="color: green;">The company's password for login.</p>
+
+		<%= c.label :password_confirmation %></br>
+		<%= c.text_field :password_confirmation, :required => true%>
 		<br></br><br></br>
 
 		<%= c.submit %>

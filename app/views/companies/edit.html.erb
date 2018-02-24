@@ -1,7 +1,7 @@
 <%= javascript_include_tag "application" %>
 <%= csrf_meta_tags %>
 
-<div style="text-align: center; font-size: 20px; margin-top: 60px;">
+<div style="text-align: center; font-size: 20px; margin-top: 60px; background-color: white;">
 	<h1 style="margin:30px;">New Company</h1>
 
 
@@ -11,26 +11,26 @@
 		<p style="color: green;">The name of your startup.</p>
 
 		<%= c.label :name %></br>
-		<%= c.text_field :name, :required => true%>
+		<%= c.text_field :name, :required => true, :style => 'width:350px;'%>
 		<br></br><br></br>
 
 		<p style="color: green;">Describe your startup in one sentence.</p>
 
 		<%= c.label :description %></br>
-		<%= c.text_area :description, :required => true%>
+		<%= c.text_area :description, :required => true, :style => 'width:350px;'%>
 		<br></br><br></br>
 
 
 		<p style="color: green;">Your startup's website. It must start with http:// or https://</p>
 
 		<%= c.label :url %></br>
-		<%= c.text_field :url, :required => true%>
+		<%= c.text_field :url, :required => true, :style => 'width:350px;'%>
 		<br></br><br></br>
 
 		<p style="color: green;">Your company's location.</p>
 
 		<%= c.label :location %></br>
-		<%= c.text_field :location, :required => true%>
+		<%= c.text_field :location, :required => true, :style => 'width:350px;'%>
 		<br></br><br></br>
 
 		<p style="color: green;">Your startup's logo.</p>
@@ -38,8 +38,7 @@
 		<%= c.label :image %></br>
 		<% if @company.image.url != '/images/original/missing.png' %>
 			Current Image:<br> <%= image_tag @company.image.url, :style =>"max-height:200px;" %><br>
-			<p style="color: green; padding-top: 10px;">Επελεξε το αυτο αμα θελεις να σβησεις την φωτογραφια.</p>
-			</br><br><br>
+			</br><br>
 			Change Image:<br><br>
 		<% end %>
 		
