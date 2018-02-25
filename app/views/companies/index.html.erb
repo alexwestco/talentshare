@@ -25,28 +25,46 @@
 	          <div class="row">
 
 				<% @companies.each do |company| %>
-					<div class="col-lg-4 col-md-6 mb-4" style="padding:33px;">
-				        <div class="card h-100">
+					<% if company.name != nil %>
+						<div class="col-lg-4 col-md-6 mb-4" style="padding:33px;">
+					        <div class="card h-100" style="">
 
-				            <div class="card-body">
-				                <h4 class="card-title" style="margin-top: 30px; margin-bottom: 30px;">
-				                	<p style="color: #191919;"><%= company.name %><img src="https://i.imgur.com/irGlZrd.png" style="height:22px; margin-bottom: 1px;" /></p>
-				                </h4>
-				                <a href="/announcements/<%= company.id %>"><img class="card-img-top" src="<%= company.image.url %>"" style="max-height: 100px; width: auto; height: auto; margin-bottom: 10px;"></a>
+					            <div class="card-body">
+					                <h4 class="card-title" style="margin-top: 30px; margin-bottom: 30px;">
+					                	<p style="color: #191919;"><%= company.name %><img src="https://i.imgur.com/irGlZrd.png" style="height:22px; margin-bottom: 1px;" /></p>
+					                </h4>
+					                <a href="/announcements/<%= company.id %>"><img class="card-img-top" src="<%= company.image.url %>"" style="max-height: 100px; width: auto; height: auto; margin-bottom: 10px;"></a>
 
-				                      
-				                <p style="font-size: 14px;" class="card-text"><%= truncate(company.description, :length => 100) %></p>
-				            </div>
-				            <div style="background-color: #333333; color:white; font-size: 11px; padding-top: 15px;">
-				            	<p><a style="color:white; padding:3px; font-size: 11px;" href="/">Product Designer (Athens, Greece) - 1/2018</a></p>
-				            	<p><a style="color:white; padding:3px; font-size: 11px;" href="/">Product Designer (Athens, Greece) - 1/2018</a></p>
-				            </div>
-				            <div class="card-footer">
-				                <p style="font-size: 14px; margin-top: 10px; color:grey;">Joined TalentShare on <%= company.created_at.day %> / <%= company.created_at.month %> / <%= company.created_at.year %></p>
-				                <a href="<%= company.url %>" style="font-size: 11px; color:grey;"><%= company.url %></a>
-				            </div>
-				        </div>
-				    </div>
+					                      
+					                <p style="font-size: 14px;" class="card-text"><%= truncate(company.description, :length => 100) %></p>
+					            </div>
+
+					            <% if @lists.where(:company => company.id).length > 0 %>
+						            <div style="background-color: #333333; color:white; font-size: 11px; padding-top: 15px;">
+
+							            <% @lists.where(:company => company.id).each do |l| %>
+								            	<p><a target="_blank" style="color:white; padding:3px; font-size: 11px;" href="<%= l.url %>"><%= l.position %> (<%= l.location %>) - <%= l.date %></a></p>
+								            
+
+							            <% end %>
+							        </div>
+							    <% else %>
+
+							    	<div style="background-color: #333333; color:white; font-size: 11px; padding-top: 15px;">
+
+							            <p><a style="color:white; padding:3px; font-size: 11px;">No lists uploaded yet.</a></p>
+							        </div>
+
+
+							    <% end %>
+					            
+					            <div class="card-footer">
+					                <p style="font-size: 14px; margin-top: 10px; color:grey;">Joined TalentShare on <%= company.created_at.day %> / <%= company.created_at.month %> / <%= company.created_at.year %></p>
+					                <a href="<%= company.url %>" style="font-size: 11px; color:grey;"><%= company.url %></a>
+					            </div>
+					        </div>
+					    </div>
+					<% end %>
 				<% end %>
 				
 			</div>

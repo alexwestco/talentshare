@@ -10,7 +10,7 @@ class ListsController < ApplicationController
 
 	def create
 	    @list = List.new(post_params)
-
+	    @list.company = current_company.id
 	    if @list.save
 	      redirect_to "/"
 	    else

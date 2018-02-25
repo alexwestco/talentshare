@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
 	def index
 		@companies = Company.all
+		@lists = List.all
 	end
 
 	def new
@@ -43,14 +44,14 @@ class CompaniesController < ApplicationController
   	end
 
   	def lists
-  		@lists = List.where(:company => params[:id])
-  		redirect_to '/'
+  		@lists = List.where(:company => current_company.id)
+  		
   	end
 
   	private
 
 	def post_params
-		params.require(:company).permit(:name, :description, :url, :location, :image)
+		params.require(:company).permit(:name, :description, :url, :location, :image, :email, :pasword, :password_confirmation)
 	end
 
 end
