@@ -42,7 +42,7 @@
 						            <% if @lists.where(:company => company.id).length > 0 %>
 							            <div style="background-color: #333333; color:white; font-size: 11px; padding-top: 15px;">
 
-								            <% @lists.where(:company => company.id).first(2).each do |l| %>
+								            <% @lists.where(:company => company.id).first(2).reverse.each do |l| %>
 								            	<% if company_signed_in? %>
 									            	<p><a target="_blank" style="color:white; padding:3px; font-size: 11px;" href="<%= l.file.url %>"><%= l.position %> (<%= l.location %>) - <%= l.date %></a></p>
 									            <% else %>
@@ -81,7 +81,7 @@
 
 			<div id="the_list_of_openings" style="display: none; margin-top: 50px;" class="col-lg-12">
 				<hr>
-				<% @lists.all.each do |l| %>
+				<% @lists.all.reverse.each do |l| %>
 						
 						<% if company_signed_in? %>
 			            	<p><a target="_blank" style="color:#191919; padding:3px; font-size: 22px;" href="<%= l.file.url %>"><%= Company.find(l.company).name %> --> <%= l.position %> (<%= l.location %>) - <%= l.date %></a></p>

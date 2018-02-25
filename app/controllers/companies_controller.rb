@@ -25,12 +25,12 @@ class CompaniesController < ApplicationController
   	end
 
   	def edit_lists
-  		@lists = List.where(:company => current_company.id)
+  		@lists = List.where(:company => current_company.id).reverse
   	end
 
   	def lists
   		@company = Company.find(params[:id])
-  		@lists = List.where(:company => params[:id])
+  		@lists = List.where(:company => params[:id]).reverse
   	end
 
   	private
