@@ -23,7 +23,7 @@
     <% end %>
     
     <br>
-    <%= link_to "Change password", edit_company_password_path, :class => "btn btn-primary my_btn", :style => "background-color: #476987; text-align: center; font-size: 18px; margin-bottom: 25px; margin-top: 25px; border: none; color:white; padding-left:30px; padding-right:30px;", data: {confirm: ""} %>
+    <%= link_to "Change password", edit_company_registration_path, :class => "btn btn-primary my_btn", :style => "background-color: #476987; text-align: center; font-size: 18px; margin-bottom: 25px; margin-top: 25px; border: none; color:white; padding-left:30px; padding-right:30px;", method: :delete, data: {confirm: ""} %>
     <br>
     <%= button_to "Log out", "/companies/sign_out/", :class => "btn", :style => "background-color: #D85537; text-align: center; font-size: 18px; margin-bottom: 25px; margin-top: 25px; border: none; color:white; padding-left:30px; padding-right:30px;", method: :delete, data: {confirm: ""} %>
 

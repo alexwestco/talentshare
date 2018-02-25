@@ -1,6 +1,8 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<!-- THIS IS A COMPLETE DOG PATCH, THIS IS THE EDIT REGISTRATION PAGE, BUT I MADE IT THE CHANGE PASSWORD PAGE BECAUSE I WOULD HAVE TO OVVERIDE THE DEVISE CONTROLLER IN ORDER TO GET TO THAT PAGE -->
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<!--<h2>Edit <%= resource_name.to_s.humanize %></h2>-->
+
+<!--<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
@@ -40,4 +42,58 @@
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back %>-->
+
+<div style="text-align: center; font-size: 20px; padding-top: 60px; background-color: white;">
+
+<h1>Change Password</h1>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", :style => 'visibility: hidden;' %>
+  </div>
+
+
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+
+  <div class="field" style="padding:30px;">
+    <p>Current password</p>
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </div>
+
+
+
+  <div class="field" style="padding:30px;">
+    <p>New password</p>
+    <%= f.password_field :password, autocomplete: "off" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em style="color:green; font-size: 15px;"><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field" style="padding:30px;">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+<div style="height:500px;"></div>
+
+<p style="font-size: 11px;"><b></b></p>
+
+<p><%= link_to "", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :style => ' color:grey; font-size: 13px;' %></p>
+
+
+</div>
+
