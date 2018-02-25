@@ -43,8 +43,11 @@
 						            <div style="background-color: #333333; color:white; font-size: 11px; padding-top: 15px;">
 
 							            <% @lists.where(:company => company.id).each do |l| %>
-								            	<p><a target="_blank" style="color:white; padding:3px; font-size: 11px;" href="<%= l.url %>"><%= l.position %> (<%= l.location %>) - <%= l.date %></a></p>
-								            
+							            	<% if company_signed_in? %>
+								            	<p><a target="_blank" style="color:white; padding:3px; font-size: 11px;" href="<%= l.file.url %>"><%= l.position %> (<%= l.location %>) - <%= l.date %></a></p>
+								            <% else %>
+								            	<p><a id="list_obj" href="" style="color:white; padding:3px; font-size: 11px;"><%= l.position %> (<%= l.location %>) - <%= l.date %></a></p>
+								            <% end %>
 
 							            <% end %>
 							        </div>
@@ -76,4 +79,11 @@
 </div>
 
 </div>
+<script>
+document.getElementById("list_obj").onclick = signInPopup;
+
+function signInPopup() {
+    alert("You need to sign in to gain access to the lists.");
+}
+</script>
 

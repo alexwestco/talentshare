@@ -39,6 +39,6 @@ class ListsController < ApplicationController
   	private
 
 	def post_params
-		params.require(:list).permit(:position, :location, :company, :url, :date)
+		params.require(:list).permit(:position, :location, :company, :file, :date)
 	end
 end
