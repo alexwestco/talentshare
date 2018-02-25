@@ -1,0 +1,12 @@
+
+<div style="text-align: center; font-size: 20px; padding-top: 60px; background-color: white; height:1000px;">
+	<h1 style="margin:30px;">Edit My Lists</h1>
+
+<% @lists.each do |l| %>
+	<a style="color:grey" href="/lists/<%= l.id %>/edit"><%= l.position %> (<%= l.location %>) - <%= l.date %></a>
+
+
+<% end %>
+
+
+</div>

@@ -56,10 +56,10 @@
     <ul class="nav navbar-nav">
       <% if !company_signed_in? %>
         <li class="nav-item">
-          <a style="font-size: 35px; color:black;" href="/companies/sign_in/"><p style="color:grey; font-size: 13px; text-decoration: none;">Sign In</p></a>
+          <a style="font-size: 35px; color:black;" href="/sign_in/"><p style="color:grey; font-size: 13px; text-decoration: none;">Sign In</p></a>
         </li>
       <% else %>
-          <a style="font-size: 35px; color:black;" href="/companies/<%= current_company.id %>"><p style="color:grey; font-size: 13px; text-decoration: none;">My Profile</p></a>
+          <a style="font-size: 35px; color:black;" href="/companies/profile/"><p style="color:grey; font-size: 13px; text-decoration: none;">My Profile</p></a>
       <% end %>
       
     </ul>

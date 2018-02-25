@@ -33,7 +33,7 @@
 					                <h4 class="card-title" style="margin-top: 30px; margin-bottom: 30px;">
 					                	<p style="color: #191919;"><%= company.name %><img src="https://i.imgur.com/irGlZrd.png" style="height:22px; margin-bottom: 1px;" /></p>
 					                </h4>
-					                <a href="/announcements/<%= company.id %>"><img class="card-img-top" src="<%= company.image.url %>"" style="max-height: 100px; width: auto; height: auto; margin-bottom: 10px;"></a>
+					                <a href="/companies/lists?id=<%= company.id %>"><img class="card-img-top" src="<%= company.image.url %>"" style="max-height: 100px; width: auto; height: auto; margin-bottom: 10px;"></a>
 
 					                      
 					                <p style="font-size: 14px;" class="card-text"><%= truncate(company.description, :length => 100) %></p>
@@ -60,7 +60,7 @@
 					            
 					            <div class="card-footer">
 					                <p style="font-size: 14px; margin-top: 10px; color:grey;">Joined TalentShare on <%= company.created_at.day %> / <%= company.created_at.month %> / <%= company.created_at.year %></p>
-					                <a href="<%= company.url %>" style="font-size: 11px; color:grey;"><%= company.url %></a>
+					                <a href="/companies/lists?id=<%= company.id %>" style="font-size: 11px; color:grey;">View all <%= company.name %> lists.</a>
 					            </div>
 					        </div>
 					    </div>

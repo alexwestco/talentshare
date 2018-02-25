@@ -11,9 +11,19 @@ Rails.application.routes.draw do
 
   get 'companies/lists'
 
+  get 'companies/edit_lists'
+
+  get 'companies/profile'
+
+  get 'companies/edit_profile'
+
   resources :lists
 
   resources :companies
+
+  devise_scope :company do
+    get 'sign_in', to: 'devise/sessions#new'
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

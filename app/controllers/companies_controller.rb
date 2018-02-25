@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+	before_action :authenticate_company!, only: [:new, :edit, :update, :destroy]
+
 	def index
 		@companies = Company.all
 		@lists = List.all
@@ -19,18 +21,18 @@ class CompaniesController < ApplicationController
   	end
 
 	def destroy
-		@company = Company.find(params[:id])
+		@company = Company.find(current_company.id)
 
 	    @company.destroy
 	    redirect_to "/"
 	end
 
-	def edit
-		@company = Company.find(params[:id]) 
+	def edit_profile
+		@company = Company.find(current_company.id) 
 	end
 
   	def update
-    	@company = Company.find(params[:id])
+    	@company = Company.find(current_company.id)
 
     	if @company.update(post_params)
       		redirect_to "/"
@@ -39,13 +41,17 @@ class CompaniesController < ApplicationController
     	end
   	end
 
-  	def show
-    	@company = Company.find(params[:id])
+  	def profile
+    	@company = Company.find(current_company.id)
+  	end
+
+  	def edit_lists
+  		@lists = List.where(:company => current_company.id)
   	end
 
   	def lists
-  		@lists = List.where(:company => current_company.id)
-  		
+  		@company = Company.find(params[:id])
+  		@lists = List.where(:company => params[:id])
   	end
 
   	private
