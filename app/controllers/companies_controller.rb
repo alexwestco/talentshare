@@ -1,30 +1,9 @@
 class CompaniesController < ApplicationController
-	before_action :authenticate_company!, only: [:new, :edit, :update, :destroy]
+	before_action :authenticate_company!, only: [:new, :edit, :update, :destroy, :profile, :edit_lists, :lists]
 
 	def index
 		@companies = Company.all
 		@lists = List.all
-	end
-
-	def new
-		@company = Company.new
-	end
-
-	def create
-	    @company = Company.new(post_params)
-
-	    if @company.save
-	      redirect_to "/"
-	    else
-	      render 'new'
-	    end
-  	end
-
-	def destroy
-		@company = Company.find(current_company.id)
-
-	    @company.destroy
-	    redirect_to "/"
 	end
 
 	def edit_profile
@@ -58,6 +37,27 @@ class CompaniesController < ApplicationController
 
 	def post_params
 		params.require(:company).permit(:name, :description, :url, :location, :image, :email, :pasword, :password_confirmation)
+	end
+
+	def new
+		@company = Company.new
+	end
+
+	def create
+	    @company = Company.new(post_params)
+
+	    if @company.save
+	      redirect_to "/"
+	    else
+	      render 'new'
+	    end
+  	end
+
+	def destroy
+		@company = Company.find(current_company.id)
+
+	    @company.destroy
+	    redirect_to "/"
 	end
 
 end

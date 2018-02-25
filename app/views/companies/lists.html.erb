@@ -4,11 +4,12 @@
 	<hr>
 	<p style="margin:20px; font-size: 32px;"><%= @company.name %><img src="https://i.imgur.com/irGlZrd.png" style="height:32px; margin-bottom: 1px;" /></p>
 	
-	<a href="/companies/lists?id=<%= @company.id %>"><img class="card-img-top" src="<%= @company.image.url %>" style="max-height: 100px; width: auto; height: auto; margin-bottom: 10px;"></a>
+	<a><img class="card-img-top" src="<%= @company.image.url %>" style="max-height: 100px; width: auto; height: auto; margin-bottom: 10px;"></a>
 
 	<p style="font-size: 14px;" class="card-text"><%= @company.description %></p>
 
-	<a target="_blank" href="<%= @company.url %>" style="font-size: 12px; color:black;"><%= @company.location %></a><br>
+	<hr>
+	<a style="font-size: 12px; color:black;"><%= @company.location %></a><br>
 
 	<a target="_blank" href="<%= @company.url %>" style="font-size: 11px; color:grey;"><%= @company.url %></a><br>
 

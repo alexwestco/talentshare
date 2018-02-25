@@ -1,11 +1,8 @@
 class ListsController < ApplicationController
-	def index
-		@lists = List.all
-	end
+	before_action :authenticate_company!
 
 	def new
 		@list = List.new
-
 	end
 
 	def create
@@ -37,10 +34,6 @@ class ListsController < ApplicationController
     	else
       		render 'edit'
     	end
-  	end
-
-  	def show
-    	@list = List.find(params[:id])
   	end
 
   	private
