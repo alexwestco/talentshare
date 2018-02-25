@@ -13,77 +13,93 @@
 	<div style="padding-left: 9%; padding-right: 9%; text-align: center;">
 
 		<div class="container" style="margin-top: 30px;">
-		<div><a href="" style="color:grey;">Sort by company</a> | <a href="" style="color:#191919">Sort by date</a></div>
+			<div><a id="sort_by_company" href="" style="color:grey;">Sort by company</a> | <a id="sort_by_date" href="" style="color:#191919">Sort by date</a></div>
 
-	      <div class="row">
+		      <div class="row">
 
-	        
-	        <!-- /.col-lg-3 -->
+		        
+		        <!-- /.col-lg-3 -->
 
-	        <div class="col-lg-12">
+		        <div id="the_list_of_companies" style="" class="col-lg-12">
 
-	          <div class="row">
+		          <div class="row">
 
-				<% @companies.each do |company| %>
-					<% if company.name != nil %>
-						<div class="col-lg-4 col-md-6 mb-4" style="padding:33px;">
-					        <div class="card h-100" style="">
+					<% @companies.each do |company| %>
+						<% if company.name != nil %>
+							<div class="col-lg-4 col-md-6 mb-4" style="padding:33px;">
+						        <div class="card h-100" style="">
 
-					            <div class="card-body">
-					                <h4 class="card-title" style="margin-top: 30px; margin-bottom: 30px;">
-					                	<a style="color: #191919;"><%= company.name %><img src="https://i.imgur.com/irGlZrd.png" style="height:22px; margin-bottom: 1px;" /></a>
-					                </h4>
-					                <a><img class="card-img-top" src="<%= company.image.url %>"" style="max-height: 100px; width: auto; height: auto; margin-bottom: 10px;"></a>
+						            <div class="card-body">
+						                <h4 class="card-title" style="margin-top: 30px; margin-bottom: 30px;">
+						                	<a style="color: #191919;"><%= company.name %><img src="https://i.imgur.com/irGlZrd.png" style="height:22px; margin-bottom: 1px;" /></a>
+						                </h4>
+						                <a><img class="card-img-top" src="<%= company.image.url %>"" style="max-height: 100px; width: auto; height: auto; margin-bottom: 10px;"></a>
 
-					                      
-					                <p style="font-size: 14px;" class="card-text"><%= truncate(company.description, :length => 100) %></p>
-					            </div>
+						                      
+						                <p style="font-size: 14px;" class="card-text"><%= truncate(company.description, :length => 100) %></p>
+						            </div>
 
-					            <% if @lists.where(:company => company.id).length > 0 %>
-						            <div style="background-color: #333333; color:white; font-size: 11px; padding-top: 15px;">
+						            <% if @lists.where(:company => company.id).length > 0 %>
+							            <div style="background-color: #333333; color:white; font-size: 11px; padding-top: 15px;">
 
-							            <% @lists.where(:company => company.id).each do |l| %>
-							            	<% if company_signed_in? %>
-								            	<p><a target="_blank" style="color:white; padding:3px; font-size: 11px;" href="<%= l.file.url %>"><%= l.position %> (<%= l.location %>) - <%= l.date %></a></p>
-								            <% else %>
-								            	<p><a id="list_obj" href="" style="color:white; padding:3px; font-size: 11px;"><%= l.position %> (<%= l.location %>) - <%= l.date %></a></p>
+								            <% @lists.where(:company => company.id).first(2).each do |l| %>
+								            	<% if company_signed_in? %>
+									            	<p><a target="_blank" style="color:white; padding:3px; font-size: 11px;" href="<%= l.file.url %>"><%= l.position %> (<%= l.location %>) - <%= l.date %></a></p>
+									            <% else %>
+									            	<p><a onclick="signInPopup()" href="" style="color:white; padding:3px; font-size: 11px;"><%= l.position %> (<%= l.location %>) - <%= l.date %></a></p>
+									            <% end %>
+
 								            <% end %>
+								        </div>
+								    <% else %>
 
-							            <% end %>
-							        </div>
-							    <% else %>
+								    	<div style="background-color: #333333; color:white; font-size: 11px; padding-top: 15px;">
 
-							    	<div style="background-color: #333333; color:white; font-size: 11px; padding-top: 15px;">
-
-							            <p><a style="color:white; padding:3px; font-size: 11px;">No lists uploaded yet.</a></p>
-							        </div>
+								            <p><a style="color:white; padding:3px; font-size: 11px;">No lists uploaded yet.</a></p>
+								        </div>
 
 
-							    <% end %>
-					            
-					            <div class="card-footer">
-					                <p style="font-size: 14px; margin-top: 10px; color:grey;">Joined TalentShare on <%= company.created_at.day %> / <%= company.created_at.month %> / <%= company.created_at.year %></p>
-					                <a href="/companies/lists?id=<%= company.id %>" style="font-size: 11px; color:grey;">View all <%= company.name %> lists.</a>
-					            </div>
-					        </div>
-					    </div>
+								    <% end %>
+						            
+						            <div class="card-footer">
+						                <p style="font-size: 14px; margin-top: 10px; color:grey;">Joined TalentShare on <%= company.created_at.day %> / <%= company.created_at.month %> / <%= company.created_at.year %></p>
+						                <a href="/companies/lists?id=<%= company.id %>" style="font-size: 11px; color:grey;">View all <%= company.name %> lists.</a>
+						            </div>
+						        </div>
+						    </div>
+						<% end %>
 					<% end %>
-				<% end %>
-				
+					
+				</div>
+
+
+
+
+
+
+			</div>
+
+			<div id="the_list_of_openings" style="display: none; margin-top: 50px;" class="col-lg-12">
+				<hr>
+				<% @lists.all.each do |l| %>
+						
+						<% if company_signed_in? %>
+			            	<p><a target="_blank" style="color:#191919; padding:3px; font-size: 22px;" href="<%= l.file.url %>"><%= Company.find(l.company).name %> --> <%= l.position %> (<%= l.location %>) - <%= l.date %></a></p>
+
+			            <% else %>
+			            	<p><a onclick="signInPopup()" href="" style="color:#191919; padding:3px; font-size: 22px; "><%= Company.find(l.company).name %> --> <%= l.position %> (<%= l.location %>) - <%= l.date %></a></p>
+
+			            <% end %>
+			            <hr>
+
+		            <% end %>
 			</div>
 		</div>
 
-
-
 	</div>
+
 </div>
 
 </div>
-<script>
-document.getElementById("list_obj").onclick = signInPopup;
 
-function signInPopup() {
-    alert("You need to sign in to gain access to the lists.");
-}
-</script>
 

@@ -36,7 +36,7 @@ class CompaniesController < ApplicationController
   	private
 
 	def post_params
-		params.require(:company).permit(:name, :description, :url, :location, :image, :email, :pasword, :password_confirmation)
+		params.require(:company).permit(:name, :description, :url, :location, :image, :email, :pasword, :password_confirmation, :stackshareprofile)
 	end
 
 	def new

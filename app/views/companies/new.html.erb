@@ -30,6 +30,12 @@
 		<%= c.text_field :location, :required => true%>
 		<br></br><br></br>
 
+		<p style="color: green;">Your StackShare profile link. It must start with https://<br>If you don't have one, just write your basic stack (eg. 'Rails, React, Heroku')</p>
+
+		<p>StackShare profile</p>
+		<%= c.text_field :stackshareprofile, :required => true%>
+		<br></br><br></br>
+
 		<p style="color: green;">Your startup's logo.</p>
 
 		<%= c.label :image %></br>

@@ -73,5 +73,37 @@
 
 <%= yield %>
 
+<script>
+  document.getElementById("sort_by_company").onclick = sortByCompany;
+  document.getElementById("sort_by_date").onclick = sortByDate;
+
+  function signInPopup() {
+    alert("You need to sign in to gain access to the lists.");
+    return false
+  }
+
+  function sortByCompany() {
+    
+    document.getElementById("sort_by_company").style.color="grey";
+    document.getElementById("sort_by_date").style.color="#191919";
+
+    document.getElementById("the_list_of_openings").style.display="none";
+    document.getElementById("the_list_of_companies").style.display="inline";
+
+    return false
+  }
+
+  function sortByDate() {
+
+    document.getElementById("sort_by_date").style.color="grey";
+    document.getElementById("sort_by_company").style.color="#191919";
+
+    document.getElementById("the_list_of_companies").style.display="none";
+    document.getElementById("the_list_of_openings").style.display="inline";
+
+    return false
+  }
+</script>
+
 </body>
 </html>
