@@ -47,7 +47,7 @@ class CompaniesController < ApplicationController
 
 	def create
 	    @company = Company.new(post_params)
-	    
+
 	    if @company.save
 	   	  redirect_to "/"
 	    else

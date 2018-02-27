@@ -11,7 +11,7 @@ class ListsController < ApplicationController
 	    if @list.save
 
 	    	current_company.number_of_lists = current_company.number_of_lists + 1
-	    	current_company.save
+		    current_company.save
 
 	      	redirect_to "/"
 	    else
@@ -24,6 +24,7 @@ class ListsController < ApplicationController
 
 		current_company.number_of_lists = current_company.number_of_lists - 1
 	    current_company.save
+		
 
 	    @list.destroy
 

@@ -25,6 +25,10 @@ Rails.application.routes.draw do
     get 'sign_in', to: 'devise/sessions#new'
   end
 
+  devise_scope :company do
+    get 'super_duper_secret_link_brow/sign_up', to: 'devise/registrations#new'
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

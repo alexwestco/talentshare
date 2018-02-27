@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20180227092623) do
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
     t.string "stackshareprofile"
-    t.integer "number_of_lists"
+    t.integer "number_of_lists", default: 0
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
   end
