@@ -9,16 +9,24 @@ class ListsController < ApplicationController
 	    @list = List.new(post_params)
 	    @list.company = current_company.id
 	    if @list.save
-	      redirect_to "/"
+
+	    	current_company.number_of_lists = current_company.number_of_lists + 1
+	    	current_company.save
+
+	      	redirect_to "/"
 	    else
-	      render 'new'
+	      	render 'new'
 	    end
   	end
 
 	def destroy
 		@list = List.find(params[:id])
 
+		current_company.number_of_lists = current_company.number_of_lists - 1
+	    current_company.save
+
 	    @list.destroy
+
 	    redirect_to "/"
 	end
 

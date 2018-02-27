@@ -2,7 +2,7 @@ class CompaniesController < ApplicationController
 	before_action :authenticate_company!, only: [:new, :edit, :update, :destroy, :profile, :edit_lists, :lists]
 
 	def index
-		@companies = Company.all
+		@companies = Company.all.sort_by(&:number_of_lists).reverse
 		@lists = List.all
 	end
 
@@ -33,10 +33,12 @@ class CompaniesController < ApplicationController
   		@lists = List.where(:company => params[:id]).reverse
   	end
 
+
+
   	private
 
 	def post_params
-		params.require(:company).permit(:name, :description, :url, :location, :image, :email, :pasword, :password_confirmation, :stackshareprofile)
+		params.require(:company).permit(:name, :description, :url, :location, :image, :email, :pasword, :password_confirmation, :stackshareprofile, :number_of_lists)
 	end
 
 	def new
@@ -45,9 +47,9 @@ class CompaniesController < ApplicationController
 
 	def create
 	    @company = Company.new(post_params)
-
+	    
 	    if @company.save
-	      redirect_to "/"
+	   	  redirect_to "/"
 	    else
 	      render 'new'
 	    end
