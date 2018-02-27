@@ -8,12 +8,11 @@
 
 	<p style="font-size: 14px;" class="card-text"><%= @company.description %></p>
 	
-	<hr>
 	<% if @company.stackshareprofile != nil %>
 		<% if @company.stackshareprofile.start_with?('https://') %>
 			<a target="_blank" href="<%= @company.stackshareprofile %>" style="font-size: 14px;" class="card-text">View Stack</a><br>
 		<% else %>
-			<p><%= @company.stackshareprofile %></p>
+			<a style="font-size: 14px; color:#0C58B0"><%= @company.stackshareprofile %></a><br>
 		<% end %>
 	<% end %>
 
