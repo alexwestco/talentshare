@@ -7,7 +7,7 @@
 	<a><img class="card-img-top" src="<%= @company.image.url %>" style="max-height: 100px; width: auto; height: auto; margin-bottom: 10px;"></a>
 
 	<p style="font-size: 14px;" class="card-text"><%= @company.description %></p>
-	<br>
+	
 	<hr>
 	<% if @company.stackshareprofile != nil %>
 		<% if @company.stackshareprofile.start_with?('https://') %>
