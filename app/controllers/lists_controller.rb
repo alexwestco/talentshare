@@ -45,9 +45,14 @@ class ListsController < ApplicationController
     	end
   	end
 
+  	def show
+  		@list = List.find(params[:id])
+  		@company = Company.find(@list.company)
+  	end
+
   	private
 
 	def post_params
-		params.require(:list).permit(:position, :location, :company, :file, :date)
+		params.require(:list).permit(:position, :location, :company, :file, :date, :description)
 	end
 end

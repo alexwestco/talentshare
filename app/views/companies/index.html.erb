@@ -42,11 +42,7 @@
 							            <div style="background-color: #333333; color:white; font-size: 11px; padding-top: 15px;">
 
 								            <% @lists.where(:company => company.id).first(2).reverse.each do |l| %>
-								            	<% if company_signed_in? %>
-									            	<p><a target="_blank" style="color:white; padding:3px; font-size: 11px;" href="<%= l.file.url %>"><%= l.position %> (<%= l.location %>) - <%= l.date %></a></p>
-									            <% else %>
-									            	<p><a onclick="signInPopup()" href="" style="color:white; padding:3px; font-size: 11px;"><%= l.position %> (<%= l.location %>) - <%= l.date %></a></p>
-									            <% end %>
+								            	<p><a href="lists/<%= l.id %>" style="color:white; padding:3px; font-size: 11px;"><%= l.position %> (<%= l.location %>) - <%= l.date %></a></p>
 
 								            <% end %>
 								        </div>
@@ -82,13 +78,8 @@
 				<hr>
 				<% @lists.all.reverse.each do |l| %>
 						
-						<% if company_signed_in? %>
-			            	<p><a target="_blank" style="color:#191919; padding:3px; font-size: 22px;" href="<%= l.file.url %>"><%= Company.find(l.company).name %> --> <%= l.position %> (<%= l.location %>) - <%= l.date %></a></p>
-
-			            <% else %>
-			            	<p><a onclick="signInPopup()" href="" style="color:#191919; padding:3px; font-size: 22px; "><%= Company.find(l.company).name %> --> <%= l.position %> (<%= l.location %>) - <%= l.date %></a></p>
-
-			            <% end %>
+						
+			            <p><a href="lists/<%= l.id %>" style="color:#191919; padding:3px; font-size: 22px; "><%= l.position %> (<%= l.location %>) - <%= l.date %></a></p>
 			            <hr>
 
 		            <% end %>

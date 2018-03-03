@@ -1,0 +1,31 @@
+
+<div style="text-align: center; font-size: 20px; padding-top: 0px; background-color: white; height:1000px;">
+
+	<hr>
+	<p style="margin:20px; font-size: 32px;"><%= @company.name %><img src="https://i.imgur.com/irGlZrd.png" style="height:32px; margin-bottom: 1px;" /></p>
+	
+	<a><img class="card-img-top" src="<%= @company.image.url %>" style="max-height: 100px; width: auto; height: auto; margin-bottom: 10px;"></a>
+
+	<p style="font-size: 14px;" class="card-text"><%= @company.description %></p>
+	
+	<% if @company.stackshareprofile != nil %>
+		<% if @company.stackshareprofile.start_with?('https://') %>
+			<a target="_blank" href="<%= @company.stackshareprofile %>" style="font-size: 14px;" class="card-text">View Stack</a><br>
+		<% else %>
+			<a style="font-size: 14px; color:#0C58B0"><%= @company.stackshareprofile %></a><br>
+		<% end %>
+	<% end %>
+
+	
+	<a style="font-size: 12px; color:black;"><%= @company.location %></a><br>
+
+	<a target="_blank" href="<%= @company.url %>" style="font-size: 11px; color:grey;"><%= @company.url %></a><br>
+
+	<hr>
+	
+	<p style="font-size: 30px; color:#191919; margin-top:80px; margin-bottom: 80px;"><%= @list.position %> (<%= @list.location %>)</p>
+
+	<p style="color:#191919;"><%= @list.description %></p>
+	<a target="_blank" href="<%= @list.file.url %>" style="font-size: 22px; margin-bottom: 50px;" class="card-text">View List</a><br>
+
+</div>
