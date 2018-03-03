@@ -20,12 +20,16 @@
 	<a style="font-size: 12px; color:black;"><%= @company.location %></a><br>
 
 	<a target="_blank" href="<%= @company.url %>" style="font-size: 11px; color:grey;"><%= @company.url %></a><br>
-
 	<hr>
 	
-	<p style="font-size: 30px; color:#191919; margin-top:80px; margin-bottom: 80px;"><%= @list.position %> (<%= @list.location %>)</p>
+	<p style="font-size: 35px; color:#191919; margin-top:100px; margin-bottom: 50px;"><%= @list.position %> (<%= @list.location %>) - <%= @list.date %></p><br>
 
-	<p style="color:#191919;"><%= @list.description %></p>
-	<a target="_blank" href="<%= @list.file.url %>" style="font-size: 22px; margin-bottom: 50px;" class="card-text">View List</a><br>
+	<p style=""><a target="_blank" href="<%= @list.file.url %>" style="font-size: 22px; color:#D85537;" class="card-text"><b>--> View List <--</b></a></p>
+
+	<p style="padding-top: 50px; padding-bottom: 25px;"><b>Job Description</b></p>
+
+	<pre style="border-color: white; white-space:pre-wrap; word-break: keep-all; color:#191919; font-size: 16px; padding-left: 20%; padding-right: 20%; font-family: 'New Times'"><%= @list.description %></pre>
+	
+	
 
 </div>

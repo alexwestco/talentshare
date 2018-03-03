@@ -12,7 +12,7 @@
 		<% if @company.stackshareprofile.start_with?('https://') %>
 			<a target="_blank" href="<%= @company.stackshareprofile %>" style="font-size: 14px;" class="card-text">View Stack</a><br>
 		<% else %>
-			<a style="font-size: 14px; color:#0C58B0"><%= @company.stackshareprofile %></a><br>
+			<a style="font-size: 14px; color:#1F83FB;"><%= @company.stackshareprofile %></a><br>
 		<% end %>
 	<% end %>
 
@@ -25,7 +25,7 @@
 	<p style="margin:20px; font-size: 22px;"><%= @company.name %>'s lists.</p>
 
 	<% @lists.each do |l| %>
-		<a target="_blank" style="color:grey" href="<%= l.file.url %>"><%= l.position %> (<%= l.location %>) - <%= l.date %></a>
+		<a style="color:grey" href="/lists/<%= l.id %>"><%= l.position %> (<%= l.location %>) - <%= l.date %></a>
 
 
 	<% end %>
