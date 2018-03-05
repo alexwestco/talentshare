@@ -35,7 +35,7 @@ gem 'puma'
 gem 'devise'
 
 # For image upload
-gem 'paperclip'
+gem "paperclip", "~> 5.2.1"
 gem 'aws-sdk', '~> 2.3'
 
 
