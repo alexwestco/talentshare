@@ -1,6 +1,50 @@
 <div class="container">
         <div class="row">
             <div class="col-lg-5 col-md-6 col-sm-12" style="padding: 70px; max-height: 700px; text-align: center; margin-top: 10%; padding-right: 10%; margin-right:20px;">
+
+                <!-- Email box -->
+<input id='crypto_subscriptions_email_box' type='email' placeholder='Your email' style='font-size: 18px; color: grey; width: 300px; margin-bottom: 10px;'>
+
+<a onclick='checkout();'>
+    <br>
+    <img id='crypto_subscriptions_img1' style='height:30px; display: inline;' src='https://i.imgur.com/gpG4wCQ.png'>
+    <img id='crypto_subscriptions_img2' style='height:30px; display: none;' src='https://i.imgur.com/kPu8CSq.png'>
+
+    <script type='text/javascript'>
+
+        function validateEmail(email){
+            var re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
+                                                    
+        function checkout() {
+
+            if (validateEmail(document.getElementById('crypto_subscriptions_email_box').value) == true ){
+
+                document.getElementById('crypto_subscriptions_img1').style.display = 'none'
+                document.getElementById('crypto_subscriptions_img2').style.display = 'inline'
+
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.onreadystatechange = function() { 
+                    if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
+                                                                                                            
+                        console.log(xmlHttp.response)
+                        if(xmlHttp.response != 'error'){
+                            window.location.href = xmlHttp.response
+                        }
+                        callback(xmlHttp.responseText);
+                    }
+                }
+                xmlHttp.open('GET', 'https://www.cryptosubscriptions.co/charges/new?api_key=m612D52KxHQEzqEgy5F5GA&subscription_plan=9&email='+document.getElementById('crypto_subscriptions_email_box').value, true);; // true for asynchronous 
+                xmlHttp.send(null);
+            }else{
+                window.alert('Please enter a valid email address')
+            }
+                                                            
+        }
+    </script>
+</a>
+
                 <p style="color: #191919; font-size: 35px;"><b>Share your top applicants with fellow startups.</b></p>
                 <p style="font-size: 30px; padding-bottom: 30px; color: #191919;">It's good karma!</p>
 
