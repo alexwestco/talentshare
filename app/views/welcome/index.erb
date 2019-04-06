@@ -2,51 +2,8 @@
         <div class="row">
             <div class="col-lg-5 col-md-6 col-sm-12" style="padding: 70px; max-height: 700px; text-align: center; margin-top: 10%; padding-right: 10%; margin-right:20px;">
 
-                <!-- Email box -->
-<input id='crypto_subscriptions_email_box' type='email' placeholder='Your email' style='font-size: 18px; color: grey; width: 300px; margin-bottom: 10px;'>
 
-<a onclick='checkout();'>
-    <br>
-    <img id='crypto_subscriptions_img1' style='height:30px; display: inline;' src='https://i.imgur.com/gpG4wCQ.png'>
-    <img id='crypto_subscriptions_img2' style='height:30px; display: none;' src='https://i.imgur.com/kPu8CSq.png'>
-
-    <script type='text/javascript'>
-
-        function validateEmail(email){
-            var re = /\S+@\S+\.\S+/;
-            return re.test(email);
-        }
-                                                    
-        function checkout() {
-
-            if (validateEmail(document.getElementById('crypto_subscriptions_email_box').value) == true ){
-
-                document.getElementById('crypto_subscriptions_img1').style.display = 'none'
-                document.getElementById('crypto_subscriptions_img2').style.display = 'inline'
-
-                var xmlHttp = new XMLHttpRequest();
-                xmlHttp.onreadystatechange = function() { 
-                    if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
-                                                                                                            
-                        console.log(xmlHttp.response)
-                        if(xmlHttp.response != 'error'){
-                            window.location.href = xmlHttp.response
-                        }
-                        callback(xmlHttp.responseText);
-                    }
-                }
-                xmlHttp.open('GET', 'https://www.cryptosubscriptions.co/charges/new?api_key=m612D52KxHQEzqEgy5F5GA&subscription_plan=9&email='+document.getElementById('crypto_subscriptions_email_box').value, true);; // true for asynchronous 
-                xmlHttp.send(null);
-            }else{
-                window.alert('Please enter a valid email address')
-            }
-                                                            
-        }
-    </script>
-</a>
-
-                <p style="color: #191919; font-size: 35px;"><b>Share your top applicants with fellow startups.</b></p>
-                <p style="font-size: 30px; padding-bottom: 30px; color: #191919;">It's good karma!</p>
+                <p style="color: #191919; font-size: 32px;"><b>Find top talent, battle tested by the world's best startups</b></p>
 
                 <div class="btn btn-primary my_btn" style="background-color: #476987; text-align: center; font-size: 18px; margin-bottom: 25px; border: none;">
                         <a href="/companies" style="color:white; text-decoration: none; padding-left: 30px; padding-right: 30px; padding-top: 15px;">Browse Talent</a>
@@ -61,97 +18,19 @@
         </div>
 
 </div>
-<div id="about" style=" text-align: center; height:50px; background-color: #191919">
-</div>
-<div style="background-color: black; text-align:center; color: white; height:500px; background-image: url('https://d380wq8lfryn3c.cloudfront.net/wp-content/uploads/2017/05/01064746/2017-04-26_076c_DonkeySumo.jpg'); text-align: center;">
 
-    <p id="join_the_movement" style="font-size: 27px; padding-top: 15px; margin-bottom: 40px; color:black"><b>Join the movement</b></p>
+<div style="color: black; text-align: center; margin-top: 100px; padding-bottom: 100px; background-color: white;">
 
-    <p id="storytale" style="margin-right: 32%; margin-left: 32%; font-family: 'Over the Rainbow'; font-size: 24px; color:#191919; font-weight: ;"><span style="background-color: ">Not all startups are unicorns with massive hiring budgets and countless applicants. That's why we should help each other out. Companies like <a target="_blank" style="color:#D85537;" href="https://www.buffer.com">Buffer</a>, <a target="_blank" style="color:#D85537;" href="https://www.basecamp.com">Basecamp</a> and <a target="_blank" style="color:#D85537;" href="https://www.zapier.com">Zapier</a> are leading the transparency movement, by sharing data in order to help out and inspire fellow startups.</span></p>
-    
-</div>
+            <hr>
 
+            <p id="join_the_movement" style="font-size: 32px;"><b>About</b></p>
 
-<div id="pricing" style=" text-align: center; height:50px; background-color: #191919">
-    <p style="padding-top: 100px; font-size: 35px; color:#191919;"><b>Pricing and Signups</b></p>
+            <hr>
+            <br>
 
-    <p style="padding-top:25px; padding-bottom: 30px; margin-left: 20%; margin-right: 20%; font-size: 16px;"><b><i>TalentShare is a 'No-LinkedIn-Spammer-Recruiter Zone'.</b></i><br><hr>Every company is personally verified, every list is double-checked by TalentShare.<br><br> In order to sign up send an email to contact.talentshare@gmail.com or send me a private message @alexsideris_ on Twitter.</p>
+            <p id="storytale" style="width:80%; margin:auto; font-family: 'Over the Rainbow'; font-size: 24px; font-weight: ;"><span style="background-color: ">Not all startups are unicorns with massive hiring budgets and countless applicants. That's why we should help each other out. Companies like <a target="_blank" style="color:#D85537;" href="https://www.buffer.com">Buffer</a>, <a target="_blank" style="color:#D85537;" href="https://www.basecamp.com">Basecamp</a> and <a target="_blank" style="color:#D85537;" href="https://www.zapier.com">Zapier</a> are leading the transparency movement, by sharing data in order to help out and inspire fellow startups.</span><br><br><i>TalentShare is a 'No-LinkedIn-Spammer-Recruiter Zone'.</i><br><br>TalentShare is a closed sharing platform where startups help each other out by sharing the list of their top applicants they unfortunately could not hire. Every company is personally verified, every list is double-checked by TalentShare.<br><br> In order to sign up send an email to <span style="color: #D85537;">alexander.sideris.west@gmail.com</span> or send me a private message <span style="color: #D85537;">@alexsideris_</span> on Twitter.</p>
 
-    <p style="font-size: 18px; color: #D85537;"><b>Since we just launched, TalentShare is completely free. The pricing below is not in effect yet.</b></p>
-    <hr>
-    <a id="asd" href="javascript:hey();" style="color:grey; font-size: 13px; text-decoration: underline;">Why isn't TalentShare free for everyone?</a>
-
-    <p id="why_not_free_text" style="margin-top: 10px; color:grey; font-size: 13px; display: none;">After an internal ethical battle, I decided to add pricing to TalentShare for the following reasons:<br><br>a) I believe it will work as a good filtering mechanism against spammy recruiters.<br>b) I want to incentivize sharing on the platform.<br>c) Getting paid will allow me to work on TalentShare full time and bring more value to it.</p>
-<div class="container" style="">
-
-          <div class="row">
-
-            
-            <!-- /.col-lg-3 -->
-
-            <div class="col-lg-12">
-
-              <div class="row">
-
-                <div class="col-lg-4 col-md-6 mb-4" style="padding:33px; text-align: center;">
-                        <div class="card h-100" style="-moz-border-radius: 6px; 
- border-radius: 16px;">
-
-                            <div class="card-body" style="height:300px;">
-                                <h4 class="card-title" style="margin-top: 10px; margin-bottom: 30px;">
-                                    <p style="color: #191919; font-size: 32px;"><b>Free</b></p>
-                                </h4>
-                                <hr>
-                                      
-                                <p style="color: grey;" class="card-text">Every time you share a list with your top applicants you get the next 6 months for free.</p>
-                            </div>
-                            
-                            
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4" style="padding:33px; text-align: center;">
-                        <div class="card h-100" style="-moz-border-radius: 6px; 
- border-radius: 16px;">
-
-                            <div class="card-body" style="height:300px;">
-                                <h4 class="card-title" style="margin-top: 10px; margin-bottom: 30px;">
-                                    <p style="color: #191919; font-size: 32px;"><b>Paid<br><span style="font-size: 25px;"> (79$/month)</span></b></p>
-                                </h4>
-                                <hr>  
-                                <p style="color: grey;" class="card-text">You can always opt not to share. In that case, access to the lists costs 79$ per month.</p>
-                            </div>
-                            
-                            
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4" style="padding:33px; text-align: center;">
-                        <div class="card h-100" style="-moz-border-radius: 6px; 
- border-radius: 16px;">
-
-                            <div class="card-body" style="height:300px;">
-                                <h4 class="card-title" style="margin-top: 10px; margin-bottom: 30px;">
-                                    <p style="color: #191919; font-size: 32px;"><b>Paid<br><span style="font-size: 25px;"> (499$/year)</span></b></p>
-                                </h4>
-                                <hr>  
-                                <p style="color: grey;" class="card-text">You can always opt not to share. In that case, access to the lists costs 499$ per year.</p>
-                            </div>
-                            
-                            
-                        </div>
-                    </div>
-                
-            </div>
         </div>
-    </div>
-</div>
-
-<footer class="footer" style="">
-    <div style="bottom: 0px; background-color: black; width:100%; text-align: center; color:white; font-size: 13px; padding:5px;">
-      <span>TalentShare© - 2018</span>
-    </div>
-  </footer>
 
 
   <script type="text/javascript">

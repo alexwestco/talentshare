@@ -1,57 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html style="scroll-behavior: smooth;">
 <head>
-  <title>TalentShare | Top applicants pre vetted by the world's best startups</title>
-  <link rel="icon" href="https://i.imgur.com/mUX4h8g.png">
+  <title>TalentShare</title>
+  <link rel="shortcut icon" href="https://i.imgur.com/mUX4h8g.png">
 
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Over+the+Rainbow" />
-  <!--https://wallpapercave.com/wp/6Lib88D.jpg -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag  '//maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag  '//maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js' %>
+  <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <!-- Bootstrap core CSS -->
-    <link href="https://blackrockdigital.github.io/startbootstrap-creative/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <!-- Custom fonts for this template -->
-    <link href="https://blackrockdigital.github.io/startbootstrap-creative/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+  <style>
+    a:hover {
+     cursor:pointer;
+    }
+  </style>
 
-    <!-- Plugin CSS -->
-    <link href="https://blackrockdigital.github.io/startbootstrap-creative/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-
-    <!-- My Custom View All / View Less Button for the Products page -->
-    <style>
-      .my_btn:hover, .custom-btn:active, .custom-btn:focus {
-        background-color: #2AA3EF !important;
-        text: View Less;
-      }
-    </style>
-    <% if Rails.env == "production"  %>
-      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114899406-1"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-114899406-1');
-      </script>
-    <% end %>
 </head>
 <body style="font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans !important; background-image: linear-gradient(to bottom, #ffffff 8%, #476987 100%);">
 <nav class="navbar navbar-default navbar-static-top " style="background-color: white;">
   <div class="container">
     <ul class="nav navbar-nav">
       <li class="" style="margin-top:5px;">
-        <a style="font-size: 35px; color:black; text-decoration: none;" href="/"><img src="https://i.imgur.com/pFcOt9E.png" style="height:35px;"</img><p style="color:grey; font-size: 10px; text-decoration: none;">Top applicants pre vetted by the world's best startups.</p></a>
+        <a style="font-size: 35px; color:black; text-decoration: none;" href="/"><img src="https://i.imgur.com/pFcOt9E.png" style="height:35px;"/><p style="color:grey; font-size: 10px; text-decoration: none;">A closed platform where startups share their best applicants</p></a>
       </li>
-      
       
     </ul>
     <ul class="navbar-nav ml-auto">
